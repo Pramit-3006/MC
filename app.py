@@ -7,7 +7,7 @@ import os
 from config import Config
 from models import db, User, Proposal
 
-app = Flask(__name__)
+app = Flask(Mentor Connect)
 app.config.from_object(Config)
 db.init_app(app)
 

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Submit Abstract</h2>
+<form method="POST" action="{{ url_for('submit_abstract') }}" enctype="multipart/form-data">
+    <label for="abstract">Upload Abstract (PDF or Word):</label>
+    <input type="file" name="abstract" accept=".pdf,.doc,.docx" required>
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Dashboard</h2>
+{% if current_user.role == 'student' %}
+    <form method="POST" action="{{ url_for('select_topics') }}">
+        <label>Select your interests:</label><br>
+        <input type="checkbox" name="topics" value="paper"> Paper<br>
+        <input type="checkbox" name="topics" value="patent"> Patent<br>
+        <input type="checkbox" name="topics" value="project"> Project<br>
+        <input type="submit" value="Submit">
+    </form>
+{% elif current_user.role == 'faculty' %}
+    <h3>Student Proposals</h3>
+    <!-- Loop through student proposals -->
+    {% for proposal in proposals %}
+        <div>
+            <p>{{ proposal.student_name }} - {{ proposal.topic }}</p>
+            <form method="POST" action="{{ url_for('select_proposal', proposal_id=proposal.id) }}">
+                <input type="submit" value="Select">
+            </form>
+        </div>
+    {% endfor %}
+{% endif %}
+{% endblock %}

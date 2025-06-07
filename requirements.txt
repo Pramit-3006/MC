@@ -1,5 +1,10 @@
-Flask
-Flask-SQLAlchemy
-Flask-Login
-Flask-Mail
-Werkzeug
+fastapi
+uvicorn
+sqlalchemy
+pydantic
+jinja2
+aiofiles
+python-multipart
+faiss-cpu
+sentence-transformers
+transformers
